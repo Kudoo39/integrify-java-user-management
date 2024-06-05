@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        UserManager userManager = new UserManager();
+        UserManager userManager = new UserManager(5);
 
         User johnDoe = new User("John Doe", 25, LocalDate.of(2023, 1, 1));
         User janeDoe = new User("Jane Doe", 30, LocalDate.of(2023, 2, 1));

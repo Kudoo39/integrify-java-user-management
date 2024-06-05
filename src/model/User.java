@@ -9,7 +9,7 @@ public class User {
 
     public User (String name, int age) {
         if (age < 0) {
-            System.out.println("Age cannot be negative!");
+            throw new IllegalArgumentException("Age cannot be negative!");
         }
         this.name = name;
         this.age = age;
@@ -18,7 +18,7 @@ public class User {
 
     public User (String name, int age, LocalDate createdDate) {
         if (age < 0) {
-            System.out.println("Age cannot be negative!");
+            throw new IllegalArgumentException("Age cannot be negative!");
         }
         this.name = name;
         this.age = age;

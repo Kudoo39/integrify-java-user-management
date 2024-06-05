@@ -7,17 +7,24 @@ import java.util.List;
 
 public class UserManager {
     private List<User> users;
+    private int capacity;
 
-    public UserManager() {
+    public UserManager(int capacity) {
         this.users = new ArrayList<>();
+        this.capacity = capacity;
     }
 
     public void addUser(User user) {
-        if (findUserByName(user.getName()) == null) {
-            users.add(user);
+        if (getTotalUsers() < capacity) {
+            if (findUserByName(user.getName()) == null) {
+                users.add(user);
+            } else {
+                System.out.println(user.getName() + " is already existed!");
+            }
         } else {
-            System.out.println(user.getName() + " is already existed!");
+            System.out.println("Maximum users! Cannot add user " + user.getName());
         }
+
     }
 
     public void deleteUser(User user) {
