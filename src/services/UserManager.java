@@ -1,5 +1,6 @@
 package services;
 
+import model.Credentials;
 import model.User;
 
 import java.util.ArrayList;
@@ -48,6 +49,16 @@ public class UserManager {
         List<User> sortedUsers = new ArrayList<>(users);
         sortedUsers.sort((User user1, User user2) -> user1.getName().compareTo(user2.getName()));
         return sortedUsers;
+    }
+
+    public Boolean login(String username, String password) {
+        for (User user : users) {
+            Credentials credential = user.getCredentials();
+            if (credential.getUsername().equals(username) && credential.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void displayUsers() {
