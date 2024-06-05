@@ -7,8 +7,9 @@ public class User {
     private int age;
     private LocalDate createdDate;
     private Credentials credentials;
+    private Role role;
 
-    public User (String name, int age, Credentials credentials) {
+    public User (String name, int age, Credentials credentials, Role role) {
         if (age < 0) {
             throw new IllegalArgumentException("Age cannot be negative!");
         }
@@ -16,9 +17,10 @@ public class User {
         this.age = age;
         this.createdDate = LocalDate.now();
         this.credentials = credentials;
+        this.role = role;
     }
 
-    public User (String name, int age, LocalDate createdDate, Credentials credentials) {
+    public User (String name, int age, LocalDate createdDate, Credentials credentials, Role role) {
         if (age < 0) {
             throw new IllegalArgumentException("Age cannot be negative!");
         }
@@ -26,6 +28,7 @@ public class User {
         this.age = age;
         this.createdDate = createdDate;
         this.credentials = credentials;
+        this.role = role;
     }
 
     public String getName() {
@@ -42,5 +45,9 @@ public class User {
 
     public Credentials getCredentials() {
         return credentials;
+    }
+
+    public Role getRole() {
+        return role;
     }
 }

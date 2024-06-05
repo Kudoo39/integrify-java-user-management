@@ -1,6 +1,7 @@
 package services;
 
 import model.Credentials;
+import model.Role;
 import model.User;
 
 import java.util.ArrayList;
@@ -28,8 +29,13 @@ public class UserManager {
 
     }
 
-    public void deleteUser(User user) {
-        users.remove(user);
+    public void deleteUser(User user, User admin) {
+        if (authorize(admin)) {
+            users.remove(user);
+        }
+        else {
+            System.out.println(user.getName() + " has no admin rights!");
+        }
     }
 
     public int getTotalUsers() {
@@ -61,9 +67,17 @@ public class UserManager {
         return false;
     }
 
+    public boolean authorize(User user) {
+        if (user.getRole().equals(Role.ADMIN)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void displayUsers() {
         for (User user : users) {
-            System.out.println("Name: " + user.getName() + ", Age: " + user.getAge() + ", Creation Date: " + user.getDate());
+            System.out.println("Name: " + user.getName() + ", Age: " + user.getAge() + ", Creation Date: " + user.getDate() + ", Role: " + user.getRole());
         }
     }
 }
