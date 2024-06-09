@@ -1,4 +1,4 @@
-package model;
+package domain.entities;
 
 public class Credentials {
     private String username;

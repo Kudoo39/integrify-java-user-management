@@ -1,4 +1,6 @@
-package model;
+package domain.entities;
+
+import domain.enums.Role;
 
 import java.time.LocalDate;
 

@@ -1,8 +1,8 @@
-import model.Credentials;
-import model.Role;
-import model.User;
-import services.Product;
-import services.UserManager;
+import domain.entities.Credentials;
+import domain.enums.Role;
+import domain.entities.User;
+import application.services.Product;
+import application.services.UserManager;
 
 import java.time.LocalDate;
 

@@ -1,8 +1,8 @@
-package services;
+package application.services;
 
-import model.Credentials;
-import model.Role;
-import model.User;
+import domain.entities.Credentials;
+import domain.enums.Role;
+import domain.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;

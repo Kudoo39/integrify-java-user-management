@@ -1,6 +1,6 @@
-package services;
+package application.services;
 
-import model.User;
+import domain.entities.User;
 
 public class Product {
     private UserManager userManager;
