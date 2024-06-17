@@ -17,16 +17,19 @@ public class UserManager {
     }
 
     public void addUser(User user) {
-        if (getTotalUsers() < capacity) {
-            if (findUserByName(user.getName()) == null) {
-                users.add(user);
-            } else {
-                System.out.println(user.getName() + " is already existed!");
-            }
-        } else {
+        boolean isFull = getTotalUsers() < capacity;
+        if (!isFull) {
             System.out.println("Maximum users! Cannot add user " + user.getName());
+            return;
         }
 
+        boolean isUserUnique = findUserByName(user.getName()) == null;
+        if (!isUserUnique) {
+            System.out.println(user.getName() + " is already existed!");
+            return;
+        }
+
+        users.add(user);
     }
 
     public void deleteUser(User user, User admin) {
